@@ -2,6 +2,7 @@ import Discord = require('discord.js');
 import {credentials} from "./credentials";
 import {Channel, GuildChannel, Message} from "discord.js";
 import {settings} from "./settings";
+import {repository} from "./repository";
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -39,7 +40,11 @@ function addWord(msg: Message): void {
     const words: string[] = findWords(msg.content.valueOf());
     const appendix: string = words.length > 1 ? ` and ${words.length-1} other words`: '';
 
-    msg.reply(`I added "${words[0]}"${appendix}\n`);
+    if(repository.add(words)) {
+        msg.reply(`I added "${words[0]}"${appendix}\n`);
+    } else {
+        msg.reply(`I couldn't add "${words[0]}"${appendix}. Sorry :(\n`);
+    }
 }
 
 function removeWord(msg: Message): void {
