@@ -38,6 +38,12 @@ export class Repository {
             .catch((err: Error)=>{console.error(err); callback(false);});
     }
 
+    public remove(words: string[], callback: ((bool)=>void)): void {
+        return this.client.query(Repository.createDropQuery(words))
+            .then(()=>callback(true))
+            .catch((err: Error)=>{console.error(err); callback(false);});
+    }
+
     public doWordsExist(words: string[], callback: (found:string[])=>void): void {
         let foundWords: string[] = [];
 
@@ -59,8 +65,19 @@ export class Repository {
             word = Repository.replaySingleQuoteWithDoubleQuote(word);
             query = query.concat(` ('${word}'),`);
         }
-        
+
         return query.slice(0, query.length-1).concat(';');
+    }
+
+    static createDropQuery(words: string[]): string {
+        let query: string = `DELETE FROM ${tableValues.schema}.${tableValues.table} WHERE`;
+
+        for(let word of words) {
+            word = Repository.replaySingleQuoteWithDoubleQuote(word);
+            query = query.concat(` ${tableValues.wordColumn} = '${word}' OR`);
+        }
+
+        return query.slice(0, query.length-2).concat(';');
     }
 
     static createSelectQuery(words: string[]): string {

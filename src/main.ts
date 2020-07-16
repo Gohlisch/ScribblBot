@@ -51,7 +51,13 @@ function addWord(msg: Message): void {
 }
 
 function removeWord(msg: Message): void {
+    const words: string[] = findWords(msg.content.valueOf());
+    const appendix: string = words.length > 1 ? ` and ${words.length-1} other words`: '';
 
+    repository.remove(words, (bool: boolean) => bool ?
+        msg.reply(`I removed "${words[0]}"${appendix}\n`)
+        : msg.reply(`I couldn't remove "${words[0]}"${appendix}. Sorry 😔\n`
+        ))
 }
 
 function lookUpWord(msg: Message): void {
