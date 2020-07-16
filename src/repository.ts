@@ -6,6 +6,10 @@ interface TableValues {
     wordColumn: string;
 }
 
+interface QueryAnswer extends PermissionStatus {
+    rows: {word: string}[];
+}
+
 const dbValues: object = {
     user: 'timgohlisch',
     host: '127.0.0.1',
@@ -25,41 +29,53 @@ export class Repository {
 
     constructor() {
         this.client = new Client(dbValues);
-    }
-
-    public add(words: string[]): boolean {
-        console.log(words);
-        if(words.length == 0) return;
-        let query: string = `
-        INSERT into ${tableValues.schema}.${tableValues.table} (${tableValues.wordColumn}) VALUES 
-        `;
-
-        for(const word of words) {
-            query = query.concat(`('${word}'),`);
-        }
-        query = query.slice(0, query.length-1).concat(';');
-
-        return this.makeQuery(query);
-    }
-
-    private makeQuery(query: string): boolean {
         this.client.connect();
-        let querySuccessfull;
+    }
 
-        return this.client
-            .query(query)
-            .then(res => {
-                console.log('Ran query successfully');
-                querySuccessfull = true;
+    public add(words: string[], callback: ((bool)=>void)): void {
+        return this.client.query(Repository.createInsertQuery(words))
+            .then(()=>callback(true))
+            .catch((err: Error)=>{console.error(err); callback(false);});
+    }
+
+    public doWordsExist(words: string[], callback: (found:string[])=>void): void {
+        let foundWords: string[] = [];
+
+        this.client.query(Repository.createSelectQuery(words))
+            .then((res: QueryAnswer) => {
+                res.rows.forEach(row => foundWords.push(row.word));
+                callback(foundWords);
             })
             .catch(err => {
                 console.error(err);
-                querySuccessfull = false
-            })
-            .finally(() => {
-                this.client.end();
-                return querySuccessfull;
+                callback(foundWords);
             });
+    }
+
+    static createInsertQuery(words: string[]): string {
+        let query: string = `INSERT into ${tableValues.schema}.${tableValues.table} (${tableValues.wordColumn}) VALUES`;
+
+        for(let word of words) {
+            word = Repository.replaySingleQuoteWithDoubleQuote(word);
+            query = query.concat(` ('${word}'),`);
+        }
+        
+        return query.slice(0, query.length-1).concat(';');
+    }
+
+    static createSelectQuery(words: string[]): string {
+        let query: string = `SELECT ${tableValues.wordColumn} FROM ${tableValues.schema}.${tableValues.table} WHERE`;
+
+        for(let word of words) {
+            word = Repository.replaySingleQuoteWithDoubleQuote(word);
+            query = query.concat(` ${tableValues.wordColumn} = '${word}' OR`);
+        }
+
+        return query.slice(0, query.length-2).concat(';');
+    }
+
+    static replaySingleQuoteWithDoubleQuote(word: string): string {
+        return word.replace("'", "''");
     }
 }
 
