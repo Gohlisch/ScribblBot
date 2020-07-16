@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81df1604-9abb-4e64-ba87-60b73d264abe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/credentials.ts" afterDir="false" />
+    <list default="true" id="81df1604-9abb-4e64-ba87-60b73d264abe" name="Default Changelist" comment="feat(main): add authentication">
+      <change afterPath="$PROJECT_DIR$/src/auth/credentials.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/credentials.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +44,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/auth" />
       <recent name="$PROJECT_DIR$/out" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.main.js">
     <configuration name="main.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="./src/main.js" working-dir="$PROJECT_DIR$">
       <method v="2">
-        <option name="TypeScript.Before.Run" enabled="true" FAIL_ON_ERROR="true" CONFIG_PATH="" />
+        <option name="TypeScript.Before.Run" enabled="true" FAIL_ON_ERROR="true" />
       </method>
     </configuration>
     <configuration name="run" type="js.build_tools.npm" nameIsGenerated="true">
@@ -78,8 +78,17 @@
       <option name="presentableId" value="Default" />
       <updated>1594896575980</updated>
       <workItem from="1594896577853" duration="1000000" />
-      <workItem from="1594897596777" duration="2048000" />
+      <workItem from="1594897596777" duration="2201000" />
+      <workItem from="1594900731862" duration="496000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(main): add authentication">
+      <created>1594900646343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594900646343</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,34 +96,44 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/credentials.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
       </list>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(main): add authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(main): add authentication" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594898329668">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="451" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594898329668" />
-    <state x="569" y="156" key="CommitChangelistDialog2" timestamp="1594900352786">
+    <state x="569" y="156" key="CommitChangelistDialog2" timestamp="1594901329694">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="569" y="156" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900352786" />
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1594900590750">
+    <state x="569" y="156" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594901329694" />
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1594900729232">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900590750" />
-    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1594900590749">
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900729232" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1594900729231">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900590749" />
-    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1594900590748">
+    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900729231" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1594900729231">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900590748" />
-    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1594900590749">
+    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900729231" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1594900729232">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900590749" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594900729232" />
+    <state x="782" y="269" key="RollbackChangesDialog" timestamp="1594901019537">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="782" y="269" key="RollbackChangesDialog/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594901019537" />
     <state x="469" y="190" key="SettingsEditor" timestamp="1594897488352">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
