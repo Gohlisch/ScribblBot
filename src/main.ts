@@ -3,6 +3,7 @@ import {credentials} from "./credentials";
 import {Channel, GuildChannel, Message} from "discord.js";
 import {settings} from "./settings";
 import {repository} from "./repository";
+import {HELP_MESSAGE} from "./consts";
 
 const client = new Discord.Client();
 client.login(credentials.token);
@@ -62,11 +63,26 @@ function removeWord(msg: Message): void {
 
 function lookUpWord(msg: Message): void {
     const words: string[] = findWords(msg.content.valueOf());
-    repository.doWordsExist(words, (foundWords)=>msg.reply(`I've found the following words: ${foundWords}.\n`));
+    repository.select(words, (foundWords)=>msg.reply(`I've found the following words: ${foundWords}.\n`));
 }
 
 function executeCommand(msg: Message): void {
+    const words: string[] = findWords(msg.content.valueOf());
 
+    switch(words[0].trim()) {
+        case("show"):
+            repository.selectAll((words) => {
+                let listedWords: string = '';
+
+                words.forEach(word => listedWords = `${listedWords}\n${word}`);
+
+                msg.reply(listedWords)
+            });
+            break;
+        default:
+            msg.reply(HELP_MESSAGE);
+            break;
+    }
 }
 
 function findWords(text: string): string[] {

@@ -44,10 +44,24 @@ export class Repository {
             .catch((err: Error)=>{console.error(err); callback(false);});
     }
 
-    public doWordsExist(words: string[], callback: (found:string[])=>void): void {
+    public select(words: string[], callback: (found:string[])=>void): void {
         let foundWords: string[] = [];
 
         this.client.query(Repository.createSelectQuery(words))
+            .then((res: QueryAnswer) => {
+                res.rows.forEach(row => foundWords.push(row.word));
+                callback(foundWords);
+            })
+            .catch(err => {
+                console.error(err);
+                callback(foundWords);
+            });
+    }
+
+    public selectAll(callback: (found:string[])=>void) {
+        let foundWords: string[] = [];
+
+        this.client.query(`SELECT * FROM ${tableValues.schema}.${tableValues.table};`)
             .then((res: QueryAnswer) => {
                 res.rows.forEach(row => foundWords.push(row.word));
                 callback(foundWords);
@@ -62,7 +76,7 @@ export class Repository {
         let query: string = `INSERT into ${tableValues.schema}.${tableValues.table} (${tableValues.wordColumn}) VALUES`;
 
         for(let word of words) {
-            word = Repository.replaySingleQuoteWithDoubleQuote(word);
+            word = Repository.toLowerCaseAndDuplicatedQuotes(word);
             query = query.concat(` ('${word}'),`);
         }
 
@@ -73,7 +87,7 @@ export class Repository {
         let query: string = `DELETE FROM ${tableValues.schema}.${tableValues.table} WHERE`;
 
         for(let word of words) {
-            word = Repository.replaySingleQuoteWithDoubleQuote(word);
+            word = Repository.toLowerCaseAndDuplicatedQuotes(word);
             query = query.concat(` ${tableValues.wordColumn} = '${word}' OR`);
         }
 
@@ -84,15 +98,15 @@ export class Repository {
         let query: string = `SELECT ${tableValues.wordColumn} FROM ${tableValues.schema}.${tableValues.table} WHERE`;
 
         for(let word of words) {
-            word = Repository.replaySingleQuoteWithDoubleQuote(word);
+            word = Repository.toLowerCaseAndDuplicatedQuotes(word);
             query = query.concat(` ${tableValues.wordColumn} = '${word}' OR`);
         }
 
         return query.slice(0, query.length-2).concat(';');
     }
 
-    static replaySingleQuoteWithDoubleQuote(word: string): string {
-        return word.replace("'", "''");
+    static toLowerCaseAndDuplicatedQuotes(word: string): string {
+        return word.replace("'", "''").toLowerCase().trim();
     }
 }
 
