@@ -1,34 +1,12 @@
 import {Client} from "pg";
-
-interface TableValues {
-    schema: string;
-    table: string;
-    wordColumn: string;
-}
-
-interface QueryAnswer extends PermissionStatus {
-    rows: {word: string}[];
-}
-
-const dbValues: object = {
-    user: 'timgohlisch',
-    host: '127.0.0.1',
-    database: 'scribbl',
-    password: 'admin',
-    port: 5432,
-};
-
-const tableValues: TableValues = {
-    schema: "public",
-    table: "words",
-    wordColumn: "word"
-};
+import {QueryAnswer} from "./model/query_answer";
+import {DB_VALUES, TABLE_VALUES} from "./consts";
 
 export class Repository {
     client;
 
     constructor() {
-        this.client = new Client(dbValues);
+        this.client = new Client(DB_VALUES);
         this.client.connect();
     }
 
@@ -61,7 +39,7 @@ export class Repository {
     public selectAll(callback: (found:string[])=>void) {
         let foundWords: string[] = [];
 
-        this.client.query(`SELECT * FROM ${tableValues.schema}.${tableValues.table};`)
+        this.client.query(`SELECT * FROM ${TABLE_VALUES.schema}.${TABLE_VALUES.table};`)
             .then((res: QueryAnswer) => {
                 res.rows.forEach(row => foundWords.push(row.word));
                 callback(foundWords);
@@ -73,7 +51,7 @@ export class Repository {
     }
 
     static createInsertQuery(words: string[]): string {
-        let query: string = `INSERT into ${tableValues.schema}.${tableValues.table} (${tableValues.wordColumn}) VALUES`;
+        let query: string = `INSERT into ${TABLE_VALUES.schema}.${TABLE_VALUES.table} (${TABLE_VALUES.wordColumn}) VALUES`;
 
         for(let word of words) {
             word = Repository.toLowerCaseAndDuplicatedQuotes(word);
@@ -84,22 +62,22 @@ export class Repository {
     }
 
     static createDropQuery(words: string[]): string {
-        let query: string = `DELETE FROM ${tableValues.schema}.${tableValues.table} WHERE`;
+        let query: string = `DELETE FROM ${TABLE_VALUES.schema}.${TABLE_VALUES.table} WHERE`;
 
         for(let word of words) {
             word = Repository.toLowerCaseAndDuplicatedQuotes(word);
-            query = query.concat(` ${tableValues.wordColumn} = '${word}' OR`);
+            query = query.concat(` ${TABLE_VALUES.wordColumn} = '${word}' OR`);
         }
 
         return query.slice(0, query.length-2).concat(';');
     }
 
     static createSelectQuery(words: string[]): string {
-        let query: string = `SELECT ${tableValues.wordColumn} FROM ${tableValues.schema}.${tableValues.table} WHERE`;
+        let query: string = `SELECT ${TABLE_VALUES.wordColumn} FROM ${TABLE_VALUES.schema}.${TABLE_VALUES.table} WHERE`;
 
         for(let word of words) {
             word = Repository.toLowerCaseAndDuplicatedQuotes(word);
-            query = query.concat(` ${tableValues.wordColumn} = '${word}' OR`);
+            query = query.concat(` ${TABLE_VALUES.wordColumn} = '${word}' OR`);
         }
 
         return query.slice(0, query.length-2).concat(';');
