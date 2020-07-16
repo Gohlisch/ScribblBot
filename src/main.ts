@@ -1,4 +1,5 @@
 import Discord = require('discord.js');
+import {credentials} from "./credentials";
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -11,4 +12,4 @@ client.on('message', msg => {
     }
 });
 
-client.login('token');
+client.login(credentials.token);
