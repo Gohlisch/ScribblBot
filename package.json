@@ -1,0 +1,18 @@
+{
+  "name": "ScribblBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./out/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
+}
