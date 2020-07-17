@@ -3,6 +3,6 @@ interface Settings {
 }
 
 export const settings: Settings = {
-    homeChannelName: "scribblio",
+    homeChannelName: "skribblio",
 };
 

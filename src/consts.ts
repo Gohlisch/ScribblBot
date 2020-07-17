@@ -13,7 +13,7 @@ export const HELP_MESSAGE: string = `
 export const DB_VALUES: object = {
     user: 'username',
     host: '127.0.0.1',
-    database: 'scribbl',
+    database: 'skribbl',
     password: 'admin',
     port: 5432,
 };
