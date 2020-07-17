@@ -73,7 +73,7 @@ function executeCommand(msg: Message): void {
         case("show"):
             repository.selectAll((words) => {
                 let listedWords: string = '';
-                words.forEach(word => listedWords = `${listedWords}\n${word}`);
+                words.forEach(word => listedWords = `${listedWords}, ${word}`);
                 msg.reply(listedWords)
             });
             break;

@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81df1604-9abb-4e64-ba87-60b73d264abe" name="Default Changelist" comment="refactor(model): move interfaces to the model dir">
-      <change afterPath="$PROJECT_DIR$/src/model/credentials.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/query_answer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/table_values.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/consts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/consts.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/credentials.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/credentials.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +54,7 @@
     </configuration>
     <configuration name="repository.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="./src/repository.js" working-dir="$PROJECT_DIR$">
       <method v="2">
-        <option name="TypeScript.Before.Run" enabled="true" FAIL_ON_ERROR="true" CONFIG_PATH="" />
+        <option name="TypeScript.Before.Run" enabled="true" FAIL_ON_ERROR="true" />
       </method>
     </configuration>
     <configuration name="run" type="js.build_tools.npm" nameIsGenerated="true">
@@ -172,10 +165,11 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="543" y="290" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594917231510" />
-    <state x="569" y="156" key="CommitChangelistDialog2" timestamp="1594934408640">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="2451" y="707" key="CommitChangelistDialog2" timestamp="1595022287978">
+      <screen x="1920" y="569" width="1792" height="1097" />
     </state>
     <state x="569" y="156" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594934408640" />
+    <state x="2451" y="707" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@1920.569.1792.1097" timestamp="1595022287978" />
     <state width="1878" height="203" key="GridCell.Tab.0.bottom" timestamp="1594933003863">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
