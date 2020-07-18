@@ -7,7 +7,8 @@ export const HELP_MESSAGE: string = `
         Wörter abfragen:\t\t?[Hier deine Wörter] Schaue, welche der Wörter bereits eingetragen sind.
         
     Verwende ! um Befehle auszuführen:
-        !show\t\tzeigt alle eingetragenen Wörter in einer Liste
+        !show\t\tzeigt alle eingetragenen Wörter mit Kommasepariert. (Für Skribble.io custom words)
+        !list\t\tzeigt alle eingetragenen Wörter in einer Liste
 `;
 
 export const DB_VALUES: object = {

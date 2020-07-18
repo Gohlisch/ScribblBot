@@ -41,7 +41,7 @@ function chooseAction(msg: Message): void {
 
 function addWord(msg: Message): void {
     const words: string[] = findWords(msg.content.valueOf());
-    const appendix: string = words.length > 1 ? ` and ${words.length-1} other words`: '';
+    const appendix: string = words.length > 1 ? ` and ${words.length-1} other word(s)`: '';
 
     repository.add(words,
         (bool: boolean) => bool ?
@@ -53,7 +53,7 @@ function addWord(msg: Message): void {
 
 function removeWord(msg: Message): void {
     const words: string[] = findWords(msg.content.valueOf());
-    const appendix: string = words.length > 1 ? ` and ${words.length-1} other words`: '';
+    const appendix: string = words.length > 1 ? ` and ${words.length-1} other word(s)`: '';
 
     repository.remove(words, (bool: boolean) => bool ?
         msg.reply(`I removed "${words[0]}"${appendix}\n`)
@@ -74,6 +74,13 @@ function executeCommand(msg: Message): void {
             repository.selectAll((words) => {
                 let listedWords: string = '';
                 words.forEach(word => listedWords = `${listedWords}, ${word}`);
+                msg.reply(listedWords)
+            });
+            break;
+        case("list"):
+            repository.selectAll((words) => {
+                let listedWords: string = '';
+                words.forEach(word => listedWords = `${listedWords}\n${word}`);
                 msg.reply(listedWords)
             });
             break;
