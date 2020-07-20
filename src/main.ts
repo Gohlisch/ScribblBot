@@ -71,23 +71,33 @@ function executeCommand(msg: Message): void {
 
     switch(words[0].trim()) {
         case("show"):
-            repository.selectAll((words) => {
-                let listedWords: string = '';
-                words.forEach(word => listedWords = `${listedWords}, ${word}`);
-                msg.reply(listedWords)
-            });
-            break;
+            showWords(msg); break;
         case("list"):
-            repository.selectAll((words) => {
-                let listedWords: string = '';
-                words.forEach(word => listedWords = `${listedWords}\n${word}`);
-                msg.reply(listedWords)
-            });
-            break;
+            listWords(msg); break;
         default:
             msg.reply(HELP_MESSAGE);
             break;
     }
+}
+
+function showWords(msg: Message) {
+    repository.selectAll((words) => {
+        let listedWords: string = '';
+
+        words.forEach(word => listedWords = `${listedWords}${word}, `);
+
+        msg.reply(listedWords.slice(0, listedWords.length - 2));
+    });
+}
+
+function listWords(msg: Message) {
+    repository.selectAll((words) => {
+        let listedWords: string = '';
+
+        words.forEach(word => listedWords = `${listedWords}\n${word}`);
+
+        msg.reply(listedWords);
+    });
 }
 
 function findWords(text: string): string[] {

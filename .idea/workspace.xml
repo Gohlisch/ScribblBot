@@ -22,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1elWI1EaOrCd7WW0Y5PZVRtD2TM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -134,7 +135,10 @@
       <workItem from="1594897596777" duration="2201000" />
       <workItem from="1594900731862" duration="496000" />
       <workItem from="1594901241070" duration="27396000" />
-      <workItem from="1595064366576" duration="132000" />
+      <workItem from="1595064366576" duration="2387000" />
+      <workItem from="1595102246818" duration="446000" />
+      <workItem from="1595229351610" duration="21000" />
+      <workItem from="1595250587135" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="feat(main): add authentication">
       <created>1594900646343</created>
@@ -199,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595022471526</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat(main, consts): add list functionality; update help message;">
+      <created>1595064554933</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1595064554933</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,34 +235,35 @@
     <MESSAGE value="feat(main): add show command" />
     <MESSAGE value="fix(main): fix delimiter" />
     <MESSAGE value="refactor(app): rename project to skribblio" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(app): rename project to skribblio" />
+    <MESSAGE value="feat(main, consts): add list functionality; update help message;" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(main, consts): add list functionality; update help message;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="543" y="290" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594917231510">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="543" y="290" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594917231510" />
-    <state x="2451" y="707" key="CommitChangelistDialog2" timestamp="1595022471393">
-      <screen x="1920" y="569" width="1792" height="1097" />
+    <state x="569" y="156" key="CommitChangelistDialog2" timestamp="1595064554771">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="569" y="156" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594934408640" />
+    <state x="569" y="156" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1595064554771" />
     <state x="2451" y="707" key="CommitChangelistDialog2/0.23.1920.1057/1920.569.1792.1097@1920.569.1792.1097" timestamp="1595022471393" />
-    <state width="1878" height="203" key="GridCell.Tab.0.bottom" timestamp="1594933003863">
+    <state width="1878" height="203" key="GridCell.Tab.0.bottom" timestamp="1595073134484">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="203" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594933003863" />
-    <state width="1878" height="203" key="GridCell.Tab.0.center" timestamp="1594933003862">
+    <state width="1878" height="203" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1595073134484" />
+    <state width="1878" height="203" key="GridCell.Tab.0.center" timestamp="1595073134484">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="203" key="GridCell.Tab.0.center/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594933003862" />
-    <state width="1878" height="203" key="GridCell.Tab.0.left" timestamp="1594933003862">
+    <state width="1878" height="203" key="GridCell.Tab.0.center/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1595073134484" />
+    <state width="1878" height="203" key="GridCell.Tab.0.left" timestamp="1595073134484">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="203" key="GridCell.Tab.0.left/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594933003862" />
-    <state width="1878" height="203" key="GridCell.Tab.0.right" timestamp="1594933003862">
+    <state width="1878" height="203" key="GridCell.Tab.0.left/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1595073134484" />
+    <state width="1878" height="203" key="GridCell.Tab.0.right" timestamp="1595073134484">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1878" height="203" key="GridCell.Tab.0.right/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594933003862" />
+    <state width="1878" height="203" key="GridCell.Tab.0.right/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1595073134484" />
     <state x="782" y="269" key="RollbackChangesDialog" timestamp="1594901019537">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
@@ -264,6 +276,10 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="814" y="474" key="VCS.ChangelistChooser/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1594901528854" />
+    <state x="764" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595229355550">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="764" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057/1920.569.1792.1097@0.23.1920.1057" timestamp="1595229355550" />
     <state x="2472" y="874" width="688" height="486" key="find.popup" timestamp="1595022404706">
       <screen x="1920" y="569" width="1792" height="1097" />
     </state>
